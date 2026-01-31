@@ -9,6 +9,7 @@ const services = [
     items: ["Copias e impresiones", "Tamaños: carta y oficio", "Papel normal, fotográfico, opalina y más"],
     color: "cyan",
     cols: "md:col-span-2",
+    tag: "IMPRESIÓN"
   },
   {
     id: 2,
@@ -17,6 +18,7 @@ const services = [
     items: ["Fotos tamaño infantil", "Papel brillante", "Papel mate"],
     color: "magenta",
     cols: "md:col-span-1",
+    tag: "ESTUDIO"
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ const services = [
     items: ["Protege tus documentos", "Mejor presentación", "Variedad de tamaños"],
     color: "yellow",
     cols: "md:col-span-1",
+    tag: "ACABADOS"
   },
   {
     id: 4,
@@ -33,6 +36,7 @@ const services = [
     items: ["Folders (color y kraft)", "Hojas de color", "Sobres de papel kraft"],
     color: "cyan",
     cols: "md:col-span-1",
+    tag: "PAPELERÍA"
   },
   {
     id: 5,
@@ -41,23 +45,44 @@ const services = [
     items: ["Recargas telefónicas", "Pago de servicios (CFE, Sky, telefonía)", "💳 Aceptamos pagos con tarjeta"],
     color: "magenta",
     cols: "md:col-span-1",
+    tag: "DIGITAL"
   },
   {
     id: 6,
     icon: "📝",
     title: "Trámites",
-    items: ["Obtención de CURP", "Impresión de recibo CFE", "Asesoría personalizada"],
+    items: ["Obtención de CURP", "Impresión de recibo CFE"],
     color: "yellow",
     cols: "md:col-span-2",
+    tag: "GESTORÍA"
   },
 ];
 
 const styles = {
-  cyan: "text-cyan border-cyan/50 bg-gradient-to-br from-cyan/40 via-cyan/10 to-transparent backdrop-blur-md hover:from-cyan/50 hover:via-cyan/20 hover:to-cyan/5 hover:border-cyan hover:shadow-[0_0_40px_-5px_var(--color-cyan)]",
-  magenta:
-    "text-magenta border-magenta/50 bg-gradient-to-br from-magenta/40 via-magenta/10 to-transparent backdrop-blur-md hover:from-magenta/50 hover:via-magenta/20 hover:to-magenta/5 hover:border-magenta hover:shadow-[0_0_40px_-5px_var(--color-magenta)]",
-  yellow:
-    "text-yellow border-yellow/50 bg-gradient-to-br from-yellow/40 via-yellow/10 to-transparent backdrop-blur-md hover:from-yellow/50 hover:via-yellow/20 hover:to-yellow/5 hover:border-yellow hover:shadow-[0_0_40px_-5px_var(--color-yellow)]",
+  cyan: {
+    bg: "bg-cyan",
+    bgSoft: "bg-cyan/10",
+    text: "text-cyan",
+    shadow: "shadow-cyan/50",
+    border: "border-cyan",
+    glow: "group-hover:shadow-[0_0_30px_-5px_var(--color-cyan)]"
+  },
+  magenta: {
+    bg: "bg-magenta",
+    bgSoft: "bg-magenta/10",
+    text: "text-magenta",
+    shadow: "shadow-magenta/50",
+    border: "border-magenta",
+    glow: "group-hover:shadow-[0_0_30px_-5px_var(--color-magenta)]"
+  },
+  yellow: {
+    bg: "bg-yellow",
+    bgSoft: "bg-yellow/10",
+    text: "text-yellow",
+    shadow: "shadow-yellow/50",
+    border: "border-yellow",
+    glow: "group-hover:shadow-[0_0_30px_-5px_var(--color-yellow)]"
+  },
 };
 ---
 
@@ -76,7 +101,7 @@ const styles = {
       rel="stylesheet"
     />
   </head>
-  <body class="bg-dark-bg text-gray-200 font-sans selection:bg-cyan selection:text-black overflow-x-hidden">
+  <body class="bg-[#0f1014] text-gray-200 font-sans selection:bg-cyan selection:text-black overflow-x-hidden">
     <!-- Background Noise/Effect -->
     <div
       class="fixed inset-0 z-0 opacity-20 pointer-events-none"
@@ -113,7 +138,7 @@ const styles = {
 
       <!-- Hero Section -->
       <header
-        class="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-20 relative overflow-hidden"
+        class="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-20 pb-24 relative overflow-hidden"
       >
         <!-- Logo Container -->
         <div class="relative w-72 md:w-96 aspect-square mb-12 animate-float">
@@ -133,20 +158,22 @@ const styles = {
           Tu centro de soluciones creativas. Fotografía, impresión, diseño y más, con la calidad que mereces.
         </p>
 
-        <div class="flex gap-4">
+        <div class="flex flex-col md:flex-row gap-4 w-full md:w-auto">
           <a
-            href="#contact"
-            class="px-8 py-4 bg-transparent border border-gray-600 text-white rounded-full font-bold hover:border-white transition-all"
+            href="https://wa.me/message/KRLBDWJ5KYCGI1"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-8 py-4 bg-transparent border border-gray-600 text-white rounded-full font-bold hover:border-white transition-all w-full md:w-auto flex justify-center"
             >Contáctanos</a
           >
           <a
             href="#services"
-            class="px-8 py-4 bg-gradient-to-r from-cyan to-magenta text-white rounded-full font-bold shadow-[0_0_20px_-5px_var(--color-magenta)] hover:shadow-[0_0_30px_0px_var(--color-magenta)] transition-all transform hover:-translate-y-1"
+            class="px-8 py-4 bg-gradient-to-r from-cyan to-magenta text-white rounded-full font-bold shadow-[0_0_20px_-5px_var(--color-magenta)] hover:shadow-[0_0_30px_0px_var(--color-magenta)] transition-all transform hover:-translate-y-1 w-full md:w-auto flex justify-center"
             >Explorar Servicios</a
           >
         </div>
 
-        <div class="absolute bottom-10 animate-bounce">
+        <div class="absolute bottom-10 animate-bounce cursor-pointer" onclick="window.scrollTo({top: window.innerHeight, behavior: 'smooth'})">
           <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
             ><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"
             ></path></svg
@@ -163,7 +190,7 @@ const styles = {
             class="absolute inset-0 bg-gradient-to-r from-cyan/5 via-transparent to-yellow/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
           >
           </div>
-          <h2 class="text-3xl font-bold mb-4 relative">🐶 <br /> ¡Bienvenido a Baloo!</h2>
+          <h2 class="text-3xl font-bold mb-4 relative">🔥 ¡Bienvenido a la familia Baloo!</h2>
           <p class="text-gray-400 text-lg relative">
             "En Copias e Impresiones Baloo estamos listos para ayudarte con lo que necesites"
           </p>
@@ -172,44 +199,59 @@ const styles = {
 
       <!-- Services Grid -->
       <section id="services" class="max-w-7xl mx-auto px-6 mb-32">
-        <h2 class="text-5xl md:text-6xl font-black mb-16 text-center text-white">CATÁLOGO</h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <h2 class="text-6xl md:text-8xl font-black mb-20 text-center text-white/5 uppercase tracking-tighter absolute w-full left-0 pointer-events-none select-none">Baloo 2026</h2>
+        <h2 class="text-4xl md:text-5xl font-black mb-16 text-center text-white relative z-10">CATÁLOGO DE <span class="bg-gradient-to-r from-cyan to-yellow bg-clip-text text-transparent">SERVICIOS</span></h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
           {
-            services.map((service) => (
-              <article
-                class={`group relative p-8 rounded-3xl border border-white/5 transition-all duration-300 ${service.cols} ${styles[service.color]}`}
-              >
-                <div class="flex items-start justify-between mb-8">
-                  <span class="text-5xl filter grayscale group-hover:grayscale-0 transition-all duration-300">
-                    {service.icon}
-                  </span>
+            services.map((service) => {
+              const theme = styles[service.color];
+              return (
+                <article
+                  class={`group relative overflow-hidden rounded-3xl bg-[#16181d] border-2 border-white/5 transition-all duration-300 hover:-translate-y-2 ${theme.glow} hover:border-current ${theme.text} ${service.cols}`}
+                >
+                  {/* Decorative corner flash */}
                   <div
-                    class={`w-12 h-12 rounded-full flex items-center justify-center border border-current opacity-20 group-hover:opacity-100 transition-opacity`}
-                  >
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M17 8l4 4m0 0l-4 4m4-4H3"
-                      />
-                    </svg>
+                    class={`absolute -top-10 -right-10 w-32 h-32 ${theme.bg} rounded-full blur-[50px] opacity-0 group-hover:opacity-20 transition-opacity duration-500`}
+                  />
+
+                  <div class="p-8 relative z-10">
+                    <div class="flex items-center justify-between mb-8">
+                      {/* Icon Pill */}
+                      <div
+                        class={`px-4 py-2 rounded-full ${theme.bgSoft} border border-current flex items-center gap-3`}
+                      >
+                        <span class="text-2xl">{service.icon}</span>
+                        <span class="text-xs font-bold tracking-widest uppercase opacity-80">
+                          {service.tag}
+                        </span>
+                      </div>
+                      
+                      {/* Arrow */}
+                      <div class="opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-300">
+                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                      </div>
+                    </div>
+
+                    <h3 class="text-3xl font-black mb-6 text-white group-hover:text-current transition-colors">
+                      {service.title}
+                    </h3>
+
+                    <ul class="space-y-4">
+                      {service.items.map((item) => (
+                        <li class="flex items-start text-gray-400">
+                          <span class={`mt-1.5 w-1.5 h-1.5 rounded-full ${theme.bg} mr-3 shadow-[0_0_10px_var(--color-${service.color})]`} />
+                          <span class="text-sm font-medium leading-relaxed">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                </div>
-
-                <h3 class="text-2xl font-bold mb-4 text-white">{service.title}</h3>
-
-                <ul class="space-y-3">
-                  {service.items.map((item) => (
-                    <li class="flex items-center text-gray-400 group-hover:text-gray-300 transition-colors">
-                      <span class="w-1.5 h-1.5 rounded-full bg-current mr-3" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            ))
+                  
+                  {/* Bottom shimmer line */}
+                  <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-current to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform scale-x-50 group-hover:scale-x-100"/>
+                </article>
+              );
+            })
           }
         </div>
       </section>
@@ -249,11 +291,14 @@ const styles = {
               <p class="text-2xl font-medium mb-8 leading-relaxed opacity-90">
                 Escríbenos con confianza,<br />¡queremos escuchar tu idea!
               </p>
-              <button
-                class="bg-white text-[#FF00BD] text-xl font-bold px-8 py-4 rounded-full hover:scale-105 transition-transform shadow-lg"
+              <a
+                href="https://wa.me/message/KRLBDWJ5KYCGI1"
+                target="_blank"
+                rel="noopener noreferrer" 
+                class="bg-white text-[#FF00BD] text-xl font-bold px-8 py-4 rounded-full hover:scale-105 transition-transform shadow-lg inline-block"
               >
                 Enviar mensaje
-              </button>
+              </a>
             </div>
             <div
               class="absolute top-1/2 -right-10 w-48 h-48 bg-yellow/30 rounded-full blur-3xl group-hover:bg-yellow/50 transition-colors"
