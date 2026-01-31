@@ -1,17 +1,454 @@
 ---
-
+const services = [
+	{
+		icon: "🖨️",
+		title: "Impresión y Copiado",
+		items: [
+			"Copias e impresiones",
+			"Tamaños: carta y oficio",
+			"Papel normal, fotográfico, opalina y más"
+		],
+		color: "cyan"
+	},
+	{
+		icon: "📸",
+		title: "Fotografías",
+		items: [
+			"Fotos tamaño infantil",
+			"Papel brillante",
+			"Papel mate"
+		],
+		color: "magenta"
+	},
+	{
+		icon: "🧾",
+		title: "Enmicados",
+		items: [
+			"Protege tus documentos",
+			"Mejor presentación",
+			"Variedad de tamaños"
+		],
+		color: "yellow"
+	},
+	{
+		icon: "📁",
+		title: "Productos",
+		items: [
+			"Folders (color y kraft)",
+			"Hojas de color",
+			"Sobres de papel kraft"
+		],
+		color: "cyan"
+	},
+	{
+		icon: "📱",
+		title: "Servicios",
+		items: [
+			"Recargas telefónicas",
+			"Pago de servicios (CFE, Sky, telefonía)",
+			"💳 Aceptamos pagos con tarjeta"
+		],
+		color: "magenta"
+	},
+	{
+		icon: "📝",
+		title: "Trámites",
+		items: [
+			"Obtención de CURP",
+			"Impresión de recibo CFE",
+			"Asesoría personalizada"
+		],
+		color: "yellow"
+	}
+];
 ---
 
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<meta name="description" content="Copias e Impresiones Baloo - Tu mejor opción para impresiones, fotografías, enmicados y más" />
+		<title>Copias e Impresiones Baloo - Catálogo de Productos y Servicios</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<div class="container">
+			<!-- Header -->
+			<header class="header">
+				<div class="logo-section">
+					<img src="/logo.webp" alt="Copias e Impresiones Baloo" class="logo-image" />
+					<p class="tagline">Tu mejor opción en impresiones</p>
+				</div>
+			</header>
+
+			<!-- Welcome Message -->
+			<section class="welcome">
+				<h2>¡Bienvenido! 👋</h2>
+				<p>Gracias por visitarnos. En Copias e Impresiones Baloo estamos listos para ayudarte con lo que necesites 💙</p>
+			</section>
+
+			<!-- Services Grid -->
+			<section class="services">
+				<h2 class="section-title">Nuestros Productos y Servicios</h2>
+				<div class="services-grid">
+					{services.map((service) => (
+						<div class={`service-card ${service.color}`}>
+							<div class="service-icon">{service.icon}</div>
+							<h3 class="service-title">{service.title}</h3>
+							<ul class="service-items">
+								{service.items.map((item) => (
+									<li>{item}</li>
+								))}
+							</ul>
+						</div>
+					))}
+				</div>
+			</section>
+
+			<!-- Schedule & Contact -->
+			<section class="info">
+				<div class="info-card schedule">
+					<h3>⏰ Horario de Atención</h3>
+					<p class="schedule-time">🕗 8:00 a.m. – 10:00 p.m.</p>
+					<p class="schedule-days">Todos los días</p>
+				</div>
+				<div class="info-card contact">
+					<h3>📩 Contáctanos</h3>
+					<p>Escríbenos con confianza y dinos qué necesitas</p>
+					<p class="contact-cta">¡Con gusto te atendemos! 😊</p>
+				</div>
+			</section>
+
+			<!-- Footer -->
+			<footer class="footer">
+				<p>💳 Aceptamos pagos con tarjeta | 📱 Recargas y pagos de servicios</p>
+				<p class="footer-copy">Copias e Impresiones Baloo © 2026</p>
+			</footer>
+		</div>
+
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			:root {
+				--cyan: #00C2FF;
+				--magenta: #FF00BD;
+				--yellow: #FFE500;
+				--black: #1a1a1a;
+				--white: #ffffff;
+				--gray: #f5f5f5;
+				--gray-light: #fafafa;
+				--shadow: rgba(0, 0, 0, 0.08);
+				--shadow-hover: rgba(0, 0, 0, 0.12);
+			}
+
+			body {
+				font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+				background: #fafafa;
+				color: var(--black);
+				line-height: 1.6;
+				min-height: 100vh;
+			}
+
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 20px;
+			}
+
+			/* Header */
+			.header {
+				text-align: center;
+				padding: 40px 20px 60px;
+				background: var(--white);
+				border-radius: 0 0 40px 40px;
+				box-shadow: 0 4px 20px var(--shadow);
+				margin-bottom: 50px;
+			}
+
+			.logo-section {
+				position: relative;
+			}
+
+			.logo-image {
+				width: 100%;
+				max-width: 350px;
+				height: auto;
+				margin: 0 auto 20px;
+				display: block;
+				animation: float 3s ease-in-out infinite;
+			}
+
+			@keyframes float {
+				0%, 100% { transform: translateY(0px); }
+				50% { transform: translateY(-10px); }
+			}
+
+			.tagline {
+				font-size: 1.2rem;
+				color: #666;
+				font-weight: 600;
+			}
+
+			/* Welcome Section */
+			.welcome {
+				background: linear-gradient(135deg, var(--cyan) 0%, #0094cc 100%);
+				padding: 40px 30px;
+				border-radius: 30px;
+				margin-bottom: 50px;
+				box-shadow: 0 8px 30px rgba(0, 194, 255, 0.2);
+				text-align: center;
+				color: var(--white);
+			}
+
+			.welcome h2 {
+				color: var(--white);
+				margin-bottom: 15px;
+				font-size: 2.2rem;
+				font-weight: 700;
+			}
+
+			.welcome p {
+				font-size: 1.2rem;
+				color: rgba(255, 255, 255, 0.95);
+			}
+
+			/* Services Section */
+			.services {
+				margin-bottom: 40px;
+			}
+
+			.section-title {
+				text-align: center;
+				font-size: 2.5rem;
+				margin-bottom: 40px;
+				color: var(--black);
+				font-weight: 800;
+			}
+
+			.services-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 30px;
+			}
+
+			.service-card {
+				background: var(--white);
+				padding: 35px 30px;
+				border-radius: 25px;
+				box-shadow: 0 4px 15px var(--shadow);
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+				border-left: 5px solid transparent;
+				position: relative;
+			}
+
+			.service-card.cyan {
+				border-left-color: var(--cyan);
+			}
+
+			.service-card.magenta {
+				border-left-color: var(--magenta);
+			}
+
+			.service-card.yellow {
+				border-left-color: var(--yellow);
+			}
+
+			.service-card:hover {
+				transform: translateY(-8px);
+				box-shadow: 0 12px 35px var(--shadow-hover);
+			}
+
+			.service-icon {
+				font-size: 4rem;
+				margin-bottom: 20px;
+				text-align: center;
+				filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+			}
+
+			.service-title {
+				font-size: 1.5rem;
+				font-weight: 700;
+				margin-bottom: 20px;
+				text-align: center;
+				color: var(--black);
+			}
+
+			.service-items {
+				list-style: none;
+			}
+
+			.service-items li {
+				padding: 12px 0;
+				padding-left: 30px;
+				position: relative;
+				color: #555;
+				font-size: 1rem;
+			}
+
+			.service-items li::before {
+				content: '●';
+				position: absolute;
+				left: 0;
+				font-weight: bold;
+				font-size: 1.5rem;
+			}
+
+			.service-card.cyan .service-items li::before {
+				color: var(--cyan);
+			}
+
+			.service-card.magenta .service-items li::before {
+				color: var(--magenta);
+			}
+
+			.service-card.yellow .service-items li::before {
+				color: var(--yellow);
+			}
+
+			/* Info Section */
+			.info {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 30px;
+				margin-bottom: 40px;
+			}
+
+			.info-card {
+				background: var(--white);
+				padding: 40px 30px;
+				border-radius: 25px;
+				box-shadow: 0 4px 15px var(--shadow);
+				text-align: center;
+				transition: transform 0.3s ease;
+			}
+
+			.info-card:hover {
+				transform: translateY(-5px);
+			}
+
+			.info-card h3 {
+				font-size: 1.8rem;
+				margin-bottom: 25px;
+				color: var(--black);
+			}
+
+			.schedule {
+				background: linear-gradient(135deg, var(--cyan) 0%, #0080b3 100%);
+				color: var(--white);
+			}
+
+			.schedule h3 {
+				color: var(--white);
+			}
+
+			.schedule-time {
+				font-size: 2.5rem;
+				font-weight: 800;
+				margin: 20px 0;
+				text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+			}
+
+			.schedule-days {
+				font-size: 1.3rem;
+				opacity: 0.95;
+				font-weight: 600;
+			}
+
+			.contact {
+				background: linear-gradient(135deg, var(--magenta) 0%, #cc0080 100%);
+				color: var(--white);
+			}
+
+			.contact h3 {
+				color: var(--white);
+			}
+
+			.contact p {
+				font-size: 1.1rem;
+				margin: 10px 0;
+			}
+
+			.contact-cta {
+				font-size: 1.4rem;
+				font-weight: 700;
+				margin-top: 20px !important;
+			}
+
+			/* Footer */
+			.footer {
+				background: var(--black);
+				color: var(--white);
+				padding: 40px 30px;
+				border-radius: 30px 30px 0 0;
+				text-align: center;
+				margin-top: 60px;
+			}
+
+			.footer p {
+				margin: 10px 0;
+				font-size: 1.05rem;
+			}
+
+			.footer-copy {
+				margin-top: 25px;
+				opacity: 0.6;
+				font-size: 0.95rem;
+			}
+
+			/* Responsive */
+			@media (max-width: 768px) {
+				.container {
+					padding: 10px;
+				}
+
+				.header {
+					padding: 30px 20px 50px;
+					margin-bottom: 30px;
+					border-radius: 0 0 30px 30px;
+				}
+
+				.logo-image {
+					max-width: 280px;
+				}
+
+				.welcome {
+					padding: 30px 20px;
+				}
+
+				.welcome h2 {
+					font-size: 1.8rem;
+				}
+
+				.services-grid {
+					grid-template-columns: 1fr;
+					gap: 20px;
+				}
+
+				.section-title {
+					font-size: 2rem;
+				}
+
+				.service-card {
+					padding: 30px 25px;
+				}
+
+				.info-card {
+					padding: 35px 25px;
+				}
+
+				.schedule-time {
+					font-size: 2rem;
+				}
+			}
+		</style>
 	</body>
 </html>
