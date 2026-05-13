@@ -9,12 +9,14 @@ const services: Array<{
   color: "cyan" | "magenta" | "yellow";
   cols: string;
   tag: string;
+  note?: string;
 }> = [
   {
     id: 1,
     icon: "🖨️",
     title: "Impresión y Copiado",
     items: ["Copias e impresiones", "Tamaños: carta y oficio", "Papel normal, fotográfico, opalina y más"],
+    note: "El ajuste a medidas específicas o el acomodo de varias imágenes por hoja tiene un costo adicional debido a la edición.",
     color: "cyan",
     cols: "md:col-span-2",
     tag: "IMPRESIÓN"
@@ -50,7 +52,7 @@ const services: Array<{
     id: 5,
     icon: "📱",
     title: "Servicios",
-    items: ["Recargas telefónicas", "Pago de servicios (CFE, Sky, telefonía)", "💳 Aceptamos pagos con tarjeta"],
+    items: ["Recargas telefónicas", "💳 Aceptamos pagos con tarjeta"],
     color: "magenta",
     cols: "md:col-span-1",
     tag: "DIGITAL"
@@ -291,7 +293,7 @@ const styles = {
                       {service.title}
                     </h3>
 
-                    <ul class="space-y-4">
+                    <ul class="space-y-4 mb-6">
                       {service.items.map((item) => (
                         <li class="flex items-start text-gray-400">
                           <span class={`mt-1.5 w-1.5 h-1.5 rounded-full ${theme.bg} mr-3 shadow-[0_0_10px_var(--color-${service.color})]`} />
@@ -299,6 +301,13 @@ const styles = {
                         </li>
                       ))}
                     </ul>
+                    
+                    {service.note && (
+                      <div class={`mt-4 p-4 rounded-xl ${theme.bgSoft} border border-white/5 ${theme.text} flex gap-3 items-start`}>
+                        <span class="text-xl leading-none">⚠️</span>
+                        <span class="text-sm font-medium">{service.note}</span>
+                      </div>
+                    )}
                   </div>
                   
                   {/* Bottom shimmer line */}
