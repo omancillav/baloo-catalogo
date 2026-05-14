@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { Image } from "astro:assets";
 
 const services: Array<{
   id: number;
@@ -202,7 +203,7 @@ const styles = {
             class="absolute inset-0 bg-linear-to-tr from-cyan via-magenta to-yellow rounded-full blur-[60px] opacity-40 animate-pulse-glow"
           >
           </div>
-          <img src="/logo.webp" alt="Baloo Logo" class="relative w-full h-full object-contain drop-shadow-2xl" />
+          <Image src="/logo.webp" alt="Baloo Logo" width={384} height={384} class="relative w-full h-full object-contain drop-shadow-2xl" />
         </div>
 
         <h1 class="text-4xl md:text-7xl font-black mb-6 tracking-tight leading-tight">
